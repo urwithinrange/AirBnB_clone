@@ -81,3 +81,4 @@ class BaseModel:
     def save(self):
         """Upd8 updated_at w/ curr. datetime"""
         self.updated_at = datetime.now()
+        models.storage.save()
