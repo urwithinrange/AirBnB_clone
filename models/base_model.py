@@ -41,16 +41,26 @@ with “simple object type” of our BaseModel
 
 import uuid
 from datetime import datetime
+date_time_fmt = '%Y-%m-%dT%H:%M:%S.%f'
 
 
 class BaseModel:
     """A class defined in the module overview"""
 
-
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initializing function"""
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
+        if kwargs:
+            self.__dict__ = kwargs
+            if "created_at" in kwargs:
+                self.created_at = datetime.strptime(kwargs.get("created_at"),
+                                                    date_time_fmt)
+
+            if "updated_at" in kwargs:
+                self.updated_at = datetime.strptime(kwargs.get("updated_at"),
+                                                    date_time_fmt)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
     def __str__(self):
