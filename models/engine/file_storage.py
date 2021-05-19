@@ -53,7 +53,7 @@ class FileStorage:
         """woof as empty dict, womp as iterable"""
         """x as iterable, y as value of iterable loc"""
         woof = {}
-        with open(FileStorage.__file_path, "w",  encoding="UTF8") as womp
+        with open(FileStorage.__file_path, "w",  encoding="UTF8") as womp:
             for x, y in FileStorage.__objects.items():
                 woof[x] = y.to_dict()
         json.dump(woof, womp)
