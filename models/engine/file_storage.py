@@ -30,7 +30,7 @@ __init__(self, *args, **kwargs):
 if it’s a new instance (not from a dictionary representation), add a call to the method new(self) on storage
 """
 import json
-from models.base import BaseModel
+from models import BaseModel
 
 
 class FileStorage:
