@@ -19,7 +19,6 @@ to allow show, create, destroy, update and all used with User.
 from models.base_model import BaseModel
 
 
-
 class User(BaseModel):
     """A user's information"""
 
