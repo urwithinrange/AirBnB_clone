@@ -17,11 +17,13 @@ an empty line + ENTER shouldn’t execute anything
 Your code should not be executed when imported
 """
 
-# import models
 # import sys
-import cmd
 # from models.engine.file_storage import file_storage
-# from models.base_model import BaseModel
+import models.engine.file_storage
+from models.base_model import BaseModel
+import cmd
+import models
+dict_class = {"BaseModel": BaseModel()}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -40,6 +42,31 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """We want an empty line to do nothing"""
         pass
+
+    def do_create(self, arg):
+        """creates a class instance"""
+        if not arg:
+            print("** class name missing **")
+            return False
+        try:
+            for key, value in dict_class.items():
+                if arg == key:
+                    a_value = value
+                    print(a_value.id)
+                    a_value.save()
+        except:
+            print("** class doesn't exist **")
+
+    def do_show(self, arg):
+        a_arg = arg.split()
+
+        vid = a_arg[0]
+        eo = a_arg[1]
+        video = vid + "." + eo
+
+        print(eo)
+        print(vid)
+        print(models.storage.all()[video])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
