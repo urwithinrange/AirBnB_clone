@@ -31,7 +31,7 @@ if it’s a new instance (not from a dictionary representation), add a call to t
 """
 import json
 from models.base_model import BaseModel
-
+dict_class = {"BaseModel": BaseModel}
 
 class FileStorage:
     """Stores files to recover from JSON strings"""
@@ -49,7 +49,7 @@ class FileStorage:
 
     def new(self, obj):
         """sets obj as a new key in FS.__objects()"""
-        FileStorage.__objects["{}.{}".format(obj.__class__.__name_, obj.id)] = id
+        FileStorage.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
 
     def save(self):
         """serializes obj to JSON"""
@@ -64,9 +64,9 @@ class FileStorage:
     def reload(self):
         """deserializes JSON to obj"""
         try:
-            with open(FileStorage.__file_path, "r", emcoding="UTF8") as womp:
-              woof = json.load(womp)
-            for x, y in woof.items():
-                FileStorage.__objects[x] = BaseModel(**y)
+            with open(FileStorage.__file_path, "r", encoding="utf-8") as womp:
+                woof = json.load(womp)
+                for x, y in woof.items():
+                    FileStorage.__objects[x] = BaseModel(**y)
         except:
             pass
