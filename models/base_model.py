@@ -41,6 +41,8 @@ with “simple object type” of our BaseModel
 
 import uuid
 from datetime import datetime
+import models
+
 date_time_fmt = '%Y-%m-%dT%H:%M:%S.%f'
 
 
