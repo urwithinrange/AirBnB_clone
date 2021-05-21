@@ -64,7 +64,7 @@ class FileStorage:
     def reload(self):
         """deserializes JSON to obj"""
         try:
-            with open(FileStorage.__file_path, "r", encoding="utf-8") as womp:
+            with open(FileStorage.__file_path, "r", encoding="UTF8") as womp:
                 woof = json.load(womp)
                 for x, y in woof.items():
                     FileStorage.__objects[x] = BaseModel(**y)

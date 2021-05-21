@@ -18,12 +18,13 @@ Your code should not be executed when imported
 """
 
 # import sys
-# from models.engine.file_storage import file_storage
-import models.engine.file_storage
+from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 import cmd
 import models
-dict_class = {"BaseModel": BaseModel()}
+dict_class = {
+    "BaseModel": BaseModel()
+}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -58,15 +59,70 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, arg):
+        """string representation of an instance
+        based on class name and id
+        """
         a_arg = arg.split()
+        if len(a_arg) < 1:
+            print("** class name missing **")
+            return
+        if len(a_arg) < 2:
+            print("** instance id missing **")
+            return
+        if a_arg[0] not in dict_class:
+            print("** class doesn't exist **")
+            return
+        try:
+            video = a_arg[0] + "." + a_arg[1]
+            print(models.storage.all()[video])
+        except:
+            print("** no instance found **")
 
-        vid = a_arg[0]
-        eo = a_arg[1]
-        video = vid + "." + eo
+    def do_destroy(self, arg):
+        """Be kind, do the video thing"""
+        a_arg = arg.split()
+        rew = a_arg[0]
+        ind = a_arg[1]
 
-        print(eo)
-        print(vid)
-        print(models.storage.all()[video])
+
+        if len(a_arg) < 1:
+            print("** class name missing **")
+            return
+        if len(a_arg) < 2:
+            print("** instance id missing **")
+            return
+        if a_arg[0] not in dict_class:
+            print("** class doesn't exist **")
+            return
+        try:
+            rewind = rew + "." + ind
+            if rewind in models.storage.all():
+                models.storage.all().pop(rewind)
+
+        except:
+            print("** no instance found **")
+
+    def do_all(self, arg=None):
+        """Print list of strings of all instances based in the class"""
+        dcbrilliance = []
+        if not arg:
+            for iteration in models.storage.all():
+                dcbrilliance.append(str(models.storage.all()[iteration]))
+            print(dcbrilliance)
+            return
+        try:
+            if arg:
+                tmp_dict = models.storage.all()
+                for ite in tmp_dict.keys():
+                    print(ite)
+                    a_obj = tmp_dict[ite]
+                    dcbrilliance.append(str(a_obj))
+                print(dcbrilliance)
+
+        except:
+            print("** class doesn't exist **")
+
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
