@@ -121,16 +121,14 @@ class HBNBCommand(cmd.Cmd):
                 dcbrilliance.append(str(models.storage.all()[iteration]))
             print(dcbrilliance)
             return
-        try:
-            if arg:
-                tmp_dict = models.storage.all()
-                for ite in tmp_dict.keys():
-                    print(ite)
+        if arg and arg in dict_class.keys():
+            tmp_dict = models.storage.all()
+            for ite in tmp_dict.keys():
+                if arg == key.split(".")[0]:
                     a_obj = tmp_dict[ite]
                     dcbrilliance.append(str(a_obj))
                 print(dcbrilliance)
-
-        except:
+        else:
             print("** class doesn't exist **")
             
             
