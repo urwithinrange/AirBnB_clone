@@ -26,20 +26,20 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(type(x.description) == str)
 
     def test_number_rooms(self):
-        """Checks that the number of rooms is a str"""
+        """Checks that the number of rooms is a int"""
         self.assertTrue(type(x.number_rooms) == int)
 
     def test_number_bathrooms(self):
-        """Checks that the city_id is a str"""
-        self.assertTrue(type(x.number_bathrooms) == str)
+        """Checks that the city_id is a int"""
+        self.assertTrue(type(x.number_bathrooms) == int)
 
     def test_max_guests(self):
         """Checks that the max guests is a int"""
         self.assertTrue(type(x.max_guest) == int)
 
     def test_price_by_night(self):
-        """Checks that the price by night is a str"""
-        self.assertTrue(type(x.price_by_night) == str)
+        """Checks that the price by night is a int"""
+        self.assertTrue(type(x.price_by_night) == int)
 
     def test_latitude(self):
         """Checks that the latitude is a float"""
