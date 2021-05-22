@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""class TestAmenity tester for Amenity"""
+"""class TestState tester for State"""
 import unittest
-from models.amenity import Amenity
+from models.state import State
 
-x = Amenity()
+x = State()
 
 
-class TestAmenity(unittest.TestCase):
-    """this is to test the BaseModel"""
+class TestState(unittest.TestCase):
+    """Test for BM.state.py"""
 
     def test_name(self):
         """Checks that the name is a str"""
