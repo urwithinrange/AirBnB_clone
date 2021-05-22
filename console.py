@@ -29,13 +29,13 @@ from models.user import User
 import cmd
 import models
 dict_class = {
-    'BaseModel': BaseModel(),
-    'City': City(),
-    'Amenity': Amenity(),
-    'Place': Place(),
-    'Review': Review(),
-    'State': State(),
-    'User': User()
+    'BaseModel': BaseModel,
+    'City': City,
+    'Amenity': Amenity,
+    'Place': Place,
+    'Review': Review,
+    'State': State,
+    'User': User
 }
 
 
@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
 
         for key, value in dict_class.items():
             if arg == key:
-                a_value = value
+                a_value = value()
                 print(a_value.id)
                 a_value.save()
                 break
