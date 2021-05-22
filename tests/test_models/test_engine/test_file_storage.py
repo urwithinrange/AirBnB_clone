@@ -15,7 +15,7 @@ class TestFileStorage(unittest.TestCase):
     def test_filepath(self):
         """tests that file_path contains a string"""
         var.save()
-        self.assertTrue(os.path.exists("test_engine/file.json"))
+        self.assertTrue(os.path.exists("file.json"))
 
     def test_object(self):
         """test that the  object is a dictionary"""
@@ -33,7 +33,7 @@ class TestFileStorage(unittest.TestCase):
     def test_save(self):
         """tests that save creates a string"""
         try:
-            os.remove("test_engine/file.json")
+            os.remove("file.json")
         except:
             pass
         tmp = base.save()
