@@ -101,18 +101,18 @@ class HBNBCommand(cmd.Cmd):
         if len(a_arg) < 1:
             print("** class name missing **")
             return
-        if len(a_arg) < 2:
-            print("** instance id missing **")
-            return
         if a_arg[0] not in dict_class:
             print("** class doesn't exist **")
             return
-        try:
-            rewind = rew + "." + ind
-            if rewind in models.storage.all():
+        if len(a_arg) < 2:
+            print("** instance id missing **")
+            return
+
+        rewind = rew + "." + ind
+        if rewind in models.storage.all():
                 models.storage.all().pop(rewind)
 
-        except:
+        else:
             print("** no instance found **")
 
     def do_all(self, arg=None):
