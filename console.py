@@ -68,5 +68,6 @@ class HBNBCommand(cmd.Cmd):
         print(vid)
         print(models.storage.all()[video])
 
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
