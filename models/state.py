@@ -8,6 +8,6 @@ name: string - empty string
 from models.base_model import BaseModel
 
 
-class State:
+class State(BaseModel):
     """State Class of BaseModel"""
     name = ""
