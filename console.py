@@ -94,9 +94,6 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arg):
         """Be kind, do the video thing"""
         a_arg = arg.split()
-        rew = a_arg[0]
-        ind = a_arg[1]
-
 
         if len(a_arg) < 1:
             print("** class name missing **")
@@ -107,7 +104,8 @@ class HBNBCommand(cmd.Cmd):
         if len(a_arg) < 2:
             print("** instance id missing **")
             return
-
+        rew = a_arg[0]
+        ind = a_arg[1]
         rewind = rew + "." + ind
         if rewind in models.storage.all():
                 models.storage.all().pop(rewind)
