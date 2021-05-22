@@ -16,6 +16,7 @@ longitude: float - 0.0
 amenity_ids: list of string - empty list:
 it will be the list of Amenity.id later
 """
+from models.base_model import BaseModel
 
 
 class Place(BaseModel):
