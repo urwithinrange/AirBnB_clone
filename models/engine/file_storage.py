@@ -31,7 +31,21 @@ if it’s a new instance (not from a dictionary representation), add a call to t
 """
 import json
 from models.base_model import BaseModel
-dict_class = {"BaseModel": BaseModel}
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
+dict_class = {
+    'BaseModel': BaseModel(),
+    'City': City(),
+    'Amenity': Amenity(),
+    'Place': Place(),
+    'Review': Review(),
+    'State': State(),
+    'User': User()
+}
 
 class FileStorage:
     """Stores files to recover from JSON strings"""
