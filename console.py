@@ -61,13 +61,14 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        try:
-            for key, value in dict_class.items():
-                if arg == key:
-                    a_value = value
-                    print(a_value.id)
-                    a_value.save()
-        except:
+
+        for key, value in dict_class.items():
+            if arg == key:
+                a_value = value
+                print(a_value.id)
+                a_value.save()
+                break
+        else:
             print("** class doesn't exist **")
 
     def do_show(self, arg):
