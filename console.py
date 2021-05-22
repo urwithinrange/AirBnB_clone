@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
         rewind = rew + "." + ind
         if rewind in models.storage.all():
                 models.storage.all().pop(rewind)
-
+                models.storage.save()
         else:
             print("** no instance found **")
 
