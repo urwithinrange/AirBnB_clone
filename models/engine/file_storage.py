@@ -38,13 +38,13 @@ from models.review import Review
 from models.state import State
 from models.user import User
 dict_class = {
-    'BaseModel': BaseModel(),
-    'City': City(),
-    'Amenity': Amenity(),
-    'Place': Place(),
-    'Review': Review(),
-    'State': State(),
-    'User': User()
+    'BaseModel': BaseModel,
+    'City': City,
+    'Amenity': Amenity,
+    'Place': Place,
+    'Review': Review,
+    'State': State,
+    'User': User
 }
 
 class FileStorage:
