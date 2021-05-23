@@ -25,8 +25,13 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         """method to test save"""
-        tmp = var.to_dict()
-        self.assertIsInstance(tmp["updated_at"], str)
+        a_dict = var.to_dict()
+        var.save()
+        attr1 = var.updated_at
+        var.save()
+        attr2 = var.updated_at
+        self.assertFalse(attr1 == attr2)
+        self.assertEqual(a_dict["__class__"], "BaseModel")
 
     def test_id(self):
         """Testing that id is a string"""
