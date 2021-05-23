@@ -26,7 +26,9 @@ class TestBaseModel(unittest.TestCase):
     def test_save(self):
         """method to test save"""
         a_dict = var.to_dict()
+        os.remove("file.json")
         var.save()
+        self.assertNotEqual(var.created_at, var.updated_at)
         attr1 = var.updated_at
         var.save()
         attr2 = var.updated_at
