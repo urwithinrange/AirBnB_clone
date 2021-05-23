@@ -119,6 +119,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             for iteration in models.storage.all():
                 dc.append(str(models.storage.all()[iteration]))
+            print(dc)
             return
         if arg in dict_class:
             tmp_dict = models.storage.all()
