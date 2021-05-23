@@ -40,7 +40,14 @@ class TestFileStorage(unittest.TestCase):
         self.assertFalse(tmp == "file.json")
 
     def test_reload(self):
-        pass
+        """test the reload module"""
+        var.save()
+        var.reload()
+        tmp1 = var.all()
+        var.save()
+        var.reload()
+        tmp2 = var.all()
+        self.assertEqual(tmp2, tmp1)
 
 
 if __name__ == '__main__':
