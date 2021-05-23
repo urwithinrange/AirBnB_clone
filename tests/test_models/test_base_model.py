@@ -9,23 +9,28 @@ import os
 var = BaseModel()
 varf = FileStorage()
 
+
 class TestBaseModel(unittest.TestCase):
     """this is to test the BaseModel"""
 
     def test_str(self):
         """Testing the __str__ method"""
-        self.assertEqual(str(var), "[{}] ({}) {}".format(var.__class__.__name__,
-                        var.id, var.__dict__))
+        self.assertEqual(str(var), "[{}] ({}) {}".format(
+                         var.__class__.__name__, var.id, var.__dict__))
 
     def test_to_dict(self):
         """test that the function works"""
         a_dict = var.to_dict()
-        self.assertTrue(type(a_dict) is dict)
+        self.assertIsInstance(a_dict["created_at"], str)
 
     def test_save(self):
         """method to test save"""
-        var.save()
-        self.assertTrue(os.path.exists("file.json"))
+        try:
+            os.remove("json.file")
+        except:
+            pass
+        tmp = var.save()
+        self.assertFalse(tmp == "file.json")
 
     def test_id(self):
         """Testing that id is a string"""
@@ -36,6 +41,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(type(var.created_at) is datetime)
 
     # def test__init__(self):
+
 
 if __name__ == '__main__':
     unittest.main()
