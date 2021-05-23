@@ -121,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
                 dc.append(str(models.storage.all()[iteration]))
             return
         if arg in dict_class:
-           tmp_dict = models.storage.all()
+            tmp_dict = models.storage.all()
             for ite in tmp_dict.keys():
                 if arg == ite.split(".")[0]:
                     a_obj = tmp_dict[ite]
@@ -129,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
             print(dc)
         else:
             print("** class doesn't exist **")
-            
-            
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
