@@ -25,12 +25,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         """method to test save"""
-        try:
-            os.remove("json.file")
-        except:
-            pass
-        tmp = var.save()
-        self.assertFalse(tmp == "file.json")
+        tmp = var.to_dict()
+        self.assertIsInstance(tmp["updated_at"], str)
 
     def test_id(self):
         """Testing that id is a string"""
