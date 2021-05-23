@@ -47,6 +47,7 @@ dict_class = {
     'User': User
 }
 
+
 class FileStorage:
     """Stores files to recover from JSON strings"""
 

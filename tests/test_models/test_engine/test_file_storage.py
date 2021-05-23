@@ -42,7 +42,6 @@ class TestFileStorage(unittest.TestCase):
     def test_reload(self):
         pass
 
-    def test_
 
 if __name__ == '__main__':
     unittest.main()
