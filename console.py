@@ -113,21 +113,20 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** no instance found **")
 
-    def do_all(self, arg=None):
+    def do_all(self, arg):
         """Print list of strings of all instances based in the class"""
-        dcbrilliance = []
+        dc = []
         if not arg:
             for iteration in models.storage.all():
-                dcbrilliance.append(str(models.storage.all()[iteration]))
-            print(dcbrilliance)
+                dc.append(str(models.storage.all()[iteration]))
             return
-        if arg and arg in dict_class.keys():
-            tmp_dict = models.storage.all()
+        if arg in dict_class:
+           tmp_dict = models.storage.all()
             for ite in tmp_dict.keys():
-                if arg == key.split(".")[0]:
+                if arg == ite.split(".")[0]:
                     a_obj = tmp_dict[ite]
-                    dcbrilliance.append(str(a_obj))
-                print(dcbrilliance)
+                    dc.append(str(a_obj))
+            print(dc)
         else:
             print("** class doesn't exist **")
             

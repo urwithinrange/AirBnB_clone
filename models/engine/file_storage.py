@@ -81,6 +81,8 @@ class FileStorage:
             with open(FileStorage.__file_path, "r", encoding="UTF8") as womp:
                 woof = json.load(womp)
                 for x, y in woof.items():
-                    FileStorage.__objects[x] = BaseModel(**y)
+                    for k, v in dict_class.items():
+                        if x.split(".")[0] == k:
+                            FileStorage.__objects[x] = v(**y)
         except:
             pass
