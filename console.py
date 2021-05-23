@@ -131,6 +131,36 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
+    def do_update(self, arg):
+        """Jacob think he funny"""
+        if not arg:
+            print('** class name missing **')
+            return
+        aarg = arg.split()
+        if aarg[0] not in dict_class:
+            print("** class doesn't exist **")
+            return
+        if len(aarg) < 2:
+            print("** instance id missing **")
+            return
+        for x, y in models.storage.all().items():
+            if aarg[1] == x.split(".")[1]:
+                break
+        else:
+            print("** no instance found **")
+            return
+        if len(aarg) < 3:
+            print("** attribute name missing **")
+            return
+        if len(aarg) < 4:
+            print("** value missing **")
+            return
+        try:
+            setattr(y, aarg[2], type(y.aarg[2])(aarg[3][1:-1]))
+        except:
+            setattr(y, aarg[2], aarg[3][1:-1])
+        y.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
