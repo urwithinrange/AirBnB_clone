@@ -45,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)'
 
     def do_EOF(self, arg):
-        """If we want to exit, do this"""
+        """If we want to exit, exit. You don't need help."""
         return True
 
     def do_quit(self, arg):
@@ -53,11 +53,13 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        """We want an empty line to do nothing"""
+        """Feeling pedantic, aren't we?"""
         pass
 
     def do_create(self, arg):
         """creates a class instance"""
+        """Not much to it, to be honest"""
+        """Why would you have to ask?"""
         if not arg:
             print("** class name missing **")
             return
@@ -92,7 +94,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_destroy(self, arg):
-        """Be kind, do the video thing"""
+        """All your base are belong to us."""
+        """What would you like to destroy?"""
         a_arg = arg.split()
 
         if len(a_arg) < 1:
@@ -132,7 +135,12 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, arg):
-        """Jacob think he funny"""
+        """Sometimes when a mommy id and a daddy id disagree"""
+        """They sell the house and buy motorcycles and respite homes"""
+        """This doesn't change how the mommy and"""
+        """daddy feel about the child id"""
+        """The ID of the child has to be changed in certain circles"""
+        """This function does something like that, but less drama"""
         if not arg:
             print('** class name missing **')
             return
