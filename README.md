@@ -1,25 +1,25 @@
 # AirBnB_clone
 
-Holberton School has assigned a group project to create a clone of AirBnB.
+This AirBnB clone is the first in a myriad of projects that will eventually lead to a working website production of the AirBnB model. This first project is strictly the Python and JSON script and an initial implemetation of structure. This repository contains the classes, attributes, and base methods utilized to create and store base models.
+The goal of this project is first and foremost: learning.
 
-The AirBnB Clone project will consist of multiple sub_projects.
-This project is the fist of the series where we create the console using python.
+As we continue to develop in this project, any bugs that arise will be addressed. Please see the collaborators section for contact information if you find a bug and want to help or if you are interested in revising the code.
 
 # Console
 
-Here we create the command line interpreter that will be used to manage our AirBnB objects.
-This is our first step to creating our first full web application.
+Here we create the command line interpreter that will be used to manage the AirBnB objects.
+This is our first step in creating our first full web application.
 
 The commands used are:
-+ create - creates a new instance(User or a Place).
-+ show - retrieves a class with a specific ID from storage, and displays information related to it.
-+ all - will work similar to show only it will display all the contents of storage.
-+ destroy - Will remove a named object from the storage.
-+ update - will update an element in storage.
++ All - similar to show, plus displays all instances of that class in storage.
++ Create - creates a new instance (i.e. User or Place).
++ Destroy - removes an object from storage.
++ Show - retrieves a class with a specific ID from storage and displays dictionary information related to it.
++ Update - updates an element of an object in storage.
 
 ## Where to start
 
-Our shell should work like this in interactive mode:
+The console behavior in interactive mode:
 
 ```
 $ ./console.py
@@ -35,7 +35,7 @@ EOF  help  quit
 $
 ```
 
-This code should also work in non-interactive mode:
+The console behavior in non-interactive mode:
 
 ```
 $ echo "help" | ./console.py
@@ -59,26 +59,26 @@ EOF  help  quit
 $
 ```
 ## Commands
-* [create]() - is used to make a new element to be stored in the local memory
+* [create]() - is used to store a new element in local memory
 ```
   (hbnb) create BaseModel
   49faff9a-6318-451f-87b6-910505c55907
 ```
 
-* [show]() - will print a string representation of an instance based on the class name
+* [show]() - prints a string representation of an instance based on a class name
 ```
 (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
 ```
 
-* [update]() - Updates an instance based on the class name and id by adding or updating attribute
+* [update]() - updates an instance based on a class name and id by adding or updating attribute
 ```
 (hbnb) update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"
 (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
 [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}
 ```
 
-* [all]() - Prints all string representation of all instances based or not on the class name.
+* [all]() - prints all string representation of all instances based on a class name
 ```
 (hbnb) create BaseModel
 2dd6ef5c-467c-4f82-9521-a772ea7d84e9
@@ -86,7 +86,7 @@ $
 ["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}", "[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]
 ```
 
-* [destroy]() - Deletes an instance based on their class name and id
+* [destroy]() - deletes an instance based on a class name and id
 ```
 (hbnb) destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907
 (hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
@@ -96,13 +96,13 @@ $
 
 ## Storage contents
 
-The console is used to store everything that relates to our clone in models storage.
-The attributes that will be stored are:
-  - User
-  - State
+The console stores attributes and classes using json.
+The attributes stored are:
   - Amenity
   - Place
   - Review
+  - State
+  - User
 
 ## Collaborators
 
